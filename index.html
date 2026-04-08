@@ -139,7 +139,7 @@
 
 <!-- Firebase SDK -->
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import { getFirestore, collection, getDocs, query } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
   // ⚠️ 請換成你自己的 Firebase 設定
@@ -153,7 +153,8 @@
     measurementId: "G-ZHYPBFSRD0"
   };
 
-  const app = initializeApp(firebaseConfig);
+  import { getApps } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
   async function loadProducts() {
@@ -177,4 +178,4 @@
               <div class="name">${p.name}</div>
               <div class="desc">${p.description || ''}</div>
               <div class="price">NT$ ${p.price}</div>
-              <a class="btn" href="tel:0938538538">📞 洽詢購 
+              <a class="btn" href="tel:0938538538">📞 洽詢購�
