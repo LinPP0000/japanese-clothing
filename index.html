@@ -138,11 +138,10 @@
 </footer>
 
 <!-- Firebase SDK -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module">
-  import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import { getFirestore, collection, getDocs, query } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-  // ⚠️ 請換成你自己的 Firebase 設定
   const firebaseConfig = {
     apiKey: "AIzaSyBzG9Vw7fLCWjHGK6BKN4-EmvFudwQ50wQ",
     authDomain: "japanese-clothing.firebaseapp.com",
@@ -153,8 +152,7 @@
     measurementId: "G-ZHYPBFSRD0"
   };
 
-  import { getApps } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
+  const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
   async function loadProducts() {
