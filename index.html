@@ -140,7 +140,7 @@
 <!-- Firebase SDK -->
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getFirestore, collection, getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+  import { getFirestore, collection, getDocs, query } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
   // ⚠️ 請換成你自己的 Firebase 設定
   const firebaseConfig = {
@@ -159,7 +159,7 @@
   async function loadProducts() {
     const grid = document.getElementById('productsGrid');
     try {
-      const q = query(collection(db, "products"), orderBy("createdAt", "desc"));
+      const q = query(collection(db, "products"));
       const snapshot = await getDocs(q);
 
       if (snapshot.empty) {
@@ -177,4 +177,4 @@
               <div class="name">${p.name}</div>
               <div class="desc">${p.description || ''}</div>
               <div class="price">NT$ ${p.price}</div>
-              <a class="btn" href="tel:0938538538">📞 洽詢購�
+              <a class="btn" href="tel:0938538538">📞 洽詢購 
